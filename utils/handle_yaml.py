@@ -8,9 +8,10 @@
 
 import yaml
 from utils import handle_path
+from handle_path import yaml_path_case
 
 
-def get_yaml_data(dir):
+def get_yaml_data(dir=yaml_path_case):
     """
     :param filedir: yaml文件的路口
     :return: 返回yaml的数据
@@ -21,7 +22,7 @@ def get_yaml_data(dir):
 
 
 if __name__ == '__main__':
-    yamldir = handle_path.yaml_path
-    print(yamldir)
-    print(get_yaml_data(yamldir)['Link'])  # <class 'dict'>
-    print(get_yaml_data(yamldir)['Login'])  # <class 'dict'>
+
+    print(get_yaml_data()['Link'])  # <class 'dict'>
+    print(get_yaml_data()['Login'])  # <class 'dict'>
+    print(get_yaml_data()['shell'])  # <class 'dict'>

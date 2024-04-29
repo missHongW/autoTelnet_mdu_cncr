@@ -29,10 +29,25 @@ class TelnetLib(object):
         return data.encode('ascii') + b'\n'
 
     def link(self, host, port=23, timeout=3):
-        # 连接设备
-        self.tn = telnetlib.Telnet(host, port, timeout)
-        time.sleep(2)
-        print('连接成功,输入账号')
+        # 捕获连接异常
+        try:
+            # 连接设备
+            self.tn = telnetlib.Telnet(host, port, timeout)
+            time.sleep(2)
+            data = self.tn.read_very_eager().decode('UTF-8')
+            return data
+
+
+        except ConnectionRefusedError:
+            print("连接失败，可能是web配置后台未启用Telnet配置")
+
+        else:
+            print('连接成功,输入账号')
+        finally:
+            pass
+
+
+
 
     def login(self, username, password):
         # 发送登录信息并且监听
@@ -46,11 +61,11 @@ class TelnetLib(object):
         # 执行命令
         self.tn.write(self.format(command))
         time.sleep(1)
-        data = self.tn.read_very_eager()
+        data = self.tn.read_very_eager().decode('UTF-8')
         # 解码返回数据
-        return data.decode('UTF-8')
+        return data
 
-    def __del__(self):
+    def exit(self):
         # 退出设备
         self.tn.write(self.format('exit\n'))
         # 关闭连接
@@ -59,8 +74,8 @@ class TelnetLib(object):
 
 if __name__ == '__main__':
     tl = TelnetLib()
-    tl.link('192.168.1.1')
-    tl.login('admin', 'admin@123')
-    mdu_res = tl.shell(command='ls')
+    print(tl.link('192.168.1.1'))
+    # tl.login('admin', 'admin@123')
+    # mdu_res = tl.shell(command='ls')
 
-    print(mdu_res)
+    # print(mdu_res+"12")

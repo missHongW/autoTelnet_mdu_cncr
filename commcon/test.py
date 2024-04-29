@@ -6,6 +6,8 @@
 # >>>TODO 
 """
 
+import sys
+
 
 class A(object):
     def m1(self, n):
@@ -14,6 +16,7 @@ class A(object):
     @classmethod
     def m2(cls, n):
         print("cls:", cls)
+        print(f"当前方法名：{sys._getframe().f_code.co_name}")
 
     @staticmethod
     def m3(n):
@@ -22,5 +25,5 @@ class A(object):
 
 a = A()
 # a.m1(1) # self: <__main__.A object at 0x000001E596E41A90>
-# A.m2(1) # cls: <class '__main__.A'>
+A.m2(1) # cls: <class '__main__.A'>
 # A.m3(1)
