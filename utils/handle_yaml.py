@@ -7,8 +7,7 @@
 """
 
 import yaml
-from utils import handle_path
-from handle_path import yaml_path_case
+from utils.handle_path import yaml_path_case
 
 
 def get_yaml_data(dir=yaml_path_case):
@@ -22,7 +21,6 @@ def get_yaml_data(dir=yaml_path_case):
 
 
 if __name__ == '__main__':
-
     print(get_yaml_data()['Link'])  # <class 'dict'>
     print(get_yaml_data()['Login'])  # <class 'dict'>
     print(get_yaml_data()['shell'])  # <class 'dict'>

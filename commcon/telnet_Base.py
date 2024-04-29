@@ -46,9 +46,6 @@ class TelnetLib(object):
         finally:
             pass
 
-
-
-
     def login(self, username, password):
         # 发送登录信息并且监听
         # username = input("请输入账号：")
@@ -56,6 +53,10 @@ class TelnetLib(object):
         time.sleep(2)
         # password = input("请输入密码：")
         self.tn.write(self.format(password))
+        time.sleep(2)
+        data = self.tn.read_very_eager().decode('UTF-8')
+        # 解码返回数据
+        return data
 
     def shell(self, command):
         # 执行命令
@@ -75,7 +76,7 @@ class TelnetLib(object):
 if __name__ == '__main__':
     tl = TelnetLib()
     print(tl.link('192.168.1.1'))
-    # tl.login('admin', 'admin@123')
+    print(">>>>>", tl.login('admin', 'admin@123'))
     # mdu_res = tl.shell(command='ls')
 
     # print(mdu_res+"12")
