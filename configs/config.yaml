@@ -1,0 +1,7 @@
+Link: #连接参数
+  mdu_host: 192.168.1.1
+
+Login: #登录
+  prot: 23
+  username: admin
+  password: admin@123
