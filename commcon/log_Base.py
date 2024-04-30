@@ -6,7 +6,8 @@
 # >>>TODO 封装日志
 """
 
-import logging, os
+import logging
+import os
 from utils import handle_path
 
 # 创建日志收集器
@@ -31,12 +32,9 @@ handle.setFormatter(f)
 logger.addHandler(handle)
 
 
-def funtest():
+if __name__ == '__main__':
     name = 'jack'
     age = 12
     logger.info(f'我是 {name}，今年 {age} info级别的日志')
     logger.debug('我是debug级别的日志')
     logger.error('我是error级别的日志')
-    print(f'{name}', 'nihao')
-
-
