@@ -6,17 +6,25 @@ import os
 
 
 import pytest
-import os
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    path_allure = '../outfile/report/result'
-    pytest.main(['-vs', '--alluredir', f'{path_allure}'])
-    os.system(f'allure server{path_allure}')
+    # 1. 使用pytest生成测试报告时需要传递一个列表
+    json_dir_path = 'outfile/result'
+    args_list = ['-s', '-v', '--alluredir', json_dir_path]
+    pytest.main(args_list)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # 2. 使用allure命令生成测试报告 ：allure generate 数据路径文件 -o html路径文件 -c
+    os.system("cd outfile")
+    # cmd = 'allure generate {} -o report -c'.format(json_dir_path)
+    # print(cmd)
+    os.system('allure generate result -o report -c')
+    os.system('allure serve report')
+
+    # args = ['-vs',
+    #         '--report=MDU产品自动化测试报告.html',
+    #         '--title=MDU产品自动化测试报告',
+    #         '--tester=自动化机器',
+    #         '--desc=这是MDU产品自动化测试报告，包含测试用例数、执行花费时间、执行日期、执行用例结果',
+            # '--template=2']
+    # pytest.main(args)
