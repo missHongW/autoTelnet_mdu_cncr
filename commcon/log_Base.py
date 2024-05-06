@@ -11,7 +11,7 @@ import os
 from utils import handle_path
 
 # 创建日志收集器
-logger = logging.getLogger('上海yoyo项目系统管理自动化测试日志')
+logger = logging.getLogger('CNCR-MDU产品自动化测试日志')
 
 # 设置日志的级别  debug  info  warning  error  critical
 logger.setLevel(logging.INFO)
