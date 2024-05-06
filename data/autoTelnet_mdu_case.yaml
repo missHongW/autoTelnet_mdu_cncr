@@ -1,0 +1,17 @@
+Link: # 连接
+  ip: 192.168.1.1
+  expect: Login
+
+Login: #登录
+  username: admin
+  password: admin@123
+  expect: ~ $
+
+
+Shell: # 发送指令
+  doc: ls
+  mac: sismac
+  expect:
+    - bin
+    - Usage format
+
