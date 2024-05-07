@@ -26,6 +26,5 @@ if __name__ == '__main__':
             '--tester=自动化机器',
             '--desc=这是MDU产品自动化测试报告，包含测试用例数、执行花费时间、执行日期、执行用例结果',
             '--template=2',
-            '--self-contained-html',
-            '--encoding=utf8']
+            '--self-contained-html']
     pytest.main(args)
