@@ -1,33 +1,33 @@
-2024-05-07 10:40:51,589 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:33] - ('libs.test_link', 'test_link_pass')>>>>>ip连接信息:{'ip': '192.168.1.1', 'expect': 'Login'}
-2024-05-07 10:40:51,590 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:34] - ('libs.test_link', 'test_link_pass')>>>>>连接的ip地址:192.168.1.1
-2024-05-07 10:40:51,590 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:35] - ('libs.test_link', 'test_link_pass')>>>>>预期结果值:Login
-2024-05-07 10:40:51,590 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py link:33] - >>>host192.168.1.1
-2024-05-07 10:40:53,616 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:37] - 运行结果：Login: 
-2024-05-07 10:40:53,626 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py link:33] - >>>host192.168.1.1
-2024-05-07 10:40:55,653 INFO [CNCR-MDU产品自动化测试日志] [test_login.py test_login_pass:32] - ('libs.test_login', 'test_login_pass')>>>>>登录信息:{'username': 'admin', 'password': 'admin@123', 'expect': '~ $'}
-2024-05-07 10:40:55,654 INFO [CNCR-MDU产品自动化测试日志] [test_login.py test_login_pass:33] - 解包后的账号 和密码 ：('admin', 'admin@123')
-2024-05-07 10:40:55,654 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:54] - >>>>>username:admin
-2024-05-07 10:40:55,654 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:55] - >>>>>password:admin@123
-2024-05-07 10:41:00,679 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:65] - 登录方法后的结果>>>>>admin
+2024-05-07 11:40:32,359 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:33] - ('libs.test_link', 'test_link_pass')>>>>>ip连接信息:{'ip': '192.168.1.1', 'expect': 'Login'}
+2024-05-07 11:40:32,360 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:34] - ('libs.test_link', 'test_link_pass')>>>>>连接的ip地址:192.168.1.1
+2024-05-07 11:40:32,360 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:35] - ('libs.test_link', 'test_link_pass')>>>>>预期结果值:Login
+2024-05-07 11:40:32,360 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py link:33] - >>>host192.168.1.1
+2024-05-07 11:40:34,391 INFO [CNCR-MDU产品自动化测试日志] [test_link.py test_link_pass:37] - 运行结果：Login: 
+2024-05-07 11:40:34,400 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py link:33] - >>>host192.168.1.1
+2024-05-07 11:40:36,413 INFO [CNCR-MDU产品自动化测试日志] [test_login.py test_login_pass:32] - ('libs.test_login', 'test_login_pass')>>>>>登录信息:{'username': 'admin', 'password': 'admin@123', 'expect': '~ $'}
+2024-05-07 11:40:36,413 INFO [CNCR-MDU产品自动化测试日志] [test_login.py test_login_pass:33] - 解包后的账号 和密码 ：('admin', 'admin@123')
+2024-05-07 11:40:36,413 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:54] - >>>>>username:admin
+2024-05-07 11:40:36,413 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:55] - >>>>>password:admin@123
+2024-05-07 11:40:41,443 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:65] - 登录方法后的结果>>>>>admin
 Password: 
 ln: /lib/libjli.so: Permission denied
 ~ $
-2024-05-07 10:41:00,679 INFO [CNCR-MDU产品自动化测试日志] [test_login.py test_login_pass:35] - 运行结果：admin
+2024-05-07 11:40:41,443 INFO [CNCR-MDU产品自动化测试日志] [test_login.py test_login_pass:35] - 运行结果：admin
 Password: 
 ln: /lib/libjli.so: Permission denied
 ~ $
-2024-05-07 10:41:00,690 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py link:33] - >>>host192.168.1.1
-2024-05-07 10:41:02,724 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:54] - >>>>>username:admin
-2024-05-07 10:41:02,724 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:55] - >>>>>password:admin@123
-2024-05-07 10:41:07,762 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:65] - 登录方法后的结果>>>>>admin
+2024-05-07 11:40:41,448 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py link:33] - >>>host192.168.1.1
+2024-05-07 11:40:43,478 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:54] - >>>>>username:admin
+2024-05-07 11:40:43,478 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:55] - >>>>>password:admin@123
+2024-05-07 11:40:48,504 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py login:65] - 登录方法后的结果>>>>>admin
 Password: 
 ln: /lib/libjli.so: Permission denied
 ~ $
-2024-05-07 10:41:07,762 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py setup_class:25] - setup_class运行了
-2024-05-07 10:41:07,763 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_ls:35] - ('libs.test_shell', 'test_shell_ls')>>>>>发送指令信息:{'doc': 'ls', 'mac': 'sismac', 'expect': ['bin', 'Usage format']}
-2024-05-07 10:41:07,764 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_ls:36] - test_shell_ls 方法解包shell['doc']>>>>>ls
-2024-05-07 10:41:07,764 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:70] - >>>>>command:ls
-2024-05-07 10:41:09,764 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:76] - 执行命令方法后的结果>>>>>ls
+2024-05-07 11:40:48,504 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py setup_class:25] - setup_class运行了
+2024-05-07 11:40:48,505 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_ls:35] - ('libs.test_shell', 'test_shell_ls')>>>>>发送指令信息:{'doc': 'ls', 'mac': 'sismac', 'expect': ['bin', 'Usage format']}
+2024-05-07 11:40:48,505 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_ls:36] - test_shell_ls 方法解包shell['doc']>>>>>ls
+2024-05-07 11:40:48,505 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:70] - >>>>>command:ls
+2024-05-07 11:40:50,525 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:76] - 执行命令方法后的结果>>>>>ls
 [1;34mbin[m              [1;32minit[m             [1;34mrun[m              [1;34muserconfig[m
 [1;34mbob_datas[m        [1;34mkmodule[m          [1;34msbin[m             [1;34musr[m
 [1;34mdev[m              [1;34mlib[m              [1;34mscripts[m          [1;34mvar[m
@@ -36,7 +36,7 @@ ln: /lib/libjli.so: Permission denied
 [1;34mhome[m             [1;34mproc[m             [1;36mtemp[m
 [1;34mimportant_bak[m    [1;34mroot[m             [1;36mtmp[m
 ~ $
-2024-05-07 10:41:09,764 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_ls:38] - test_shell_ls 方法运行后的结果：>>>>>ls
+2024-05-07 11:40:50,525 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_ls:38] - test_shell_ls 方法运行后的结果：>>>>>ls
 [1;34mbin[m              [1;32minit[m             [1;34mrun[m              [1;34muserconfig[m
 [1;34mbob_datas[m        [1;34mkmodule[m          [1;34msbin[m             [1;34musr[m
 [1;34mdev[m              [1;34mlib[m              [1;34mscripts[m          [1;34mvar[m
@@ -45,10 +45,10 @@ ln: /lib/libjli.so: Permission denied
 [1;34mhome[m             [1;34mproc[m             [1;36mtemp[m
 [1;34mimportant_bak[m    [1;34mroot[m             [1;36mtmp[m
 ~ $
-2024-05-07 10:41:09,849 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:45] - ('libs.test_shell', 'test_shell_mac')>>>>>发送指令信息:{'doc': 'ls', 'mac': 'sismac', 'expect': ['bin', 'Usage format']}
-2024-05-07 10:41:09,849 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:46] - test_shell_ls 方法解包shell['doc']>>>>>sismac
-2024-05-07 10:41:09,849 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:70] - >>>>>command:sismac
-2024-05-07 10:41:11,866 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:76] - 执行命令方法后的结果>>>>>sismac
+2024-05-07 11:40:50,605 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:45] - ('libs.test_shell', 'test_shell_mac')>>>>>发送指令信息:{'doc': 'ls', 'mac': 'sismac', 'expect': ['bin', 'Usage format']}
+2024-05-07 11:40:50,605 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:46] - test_shell_ls 方法解包shell['doc']>>>>>sismac
+2024-05-07 11:40:50,605 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:70] - >>>>>command:sismac
+2024-05-07 11:40:52,629 INFO [CNCR-MDU产品自动化测试日志] [telnet_Base.py shell:76] - 执行命令方法后的结果>>>>>sismac
 Usage format:
     sismac <action type> [<para_id>] [<hex string para_val>]
     sismac show
@@ -63,8 +63,8 @@ action type:
     7-del user_param; (exam: sismac 7 4040)
     8-format user_region; (exam: sismac 8)
 ~ $
-2024-05-07 10:41:11,866 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:48] - test_shell_ls 方法解包shell['doc']>>>>>sismac
-2024-05-07 10:41:11,866 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:49] - test_shell_mac 方法运行后的结果：>>>>>sismac
+2024-05-07 11:40:52,629 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:48] - test_shell_ls 方法解包shell['doc']>>>>>sismac
+2024-05-07 11:40:52,629 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py test_shell_mac:49] - test_shell_mac 方法运行后的结果：>>>>>sismac
 Usage format:
     sismac <action type> [<para_id>] [<hex string para_val>]
     sismac show
@@ -79,4 +79,4 @@ action type:
     7-del user_param; (exam: sismac 7 4040)
     8-format user_region; (exam: sismac 8)
 ~ $
-2024-05-07 10:41:11,867 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py teardown_class:54] - teardown_class运行了
+2024-05-07 11:40:52,631 INFO [CNCR-MDU产品自动化测试日志] [test_shell.py teardown_class:54] - teardown_class运行了
