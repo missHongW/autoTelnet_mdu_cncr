@@ -9,7 +9,7 @@ import pytest
 
 
 if __name__ == '__main__':
-    # # 1. 使用pytest生成测试报告时需要传递一个列表
+    # 1. 使用pytest生成测试报告时需要传递一个列表
     # json_dir_path = 'outfile/result'
     # args_list = ['-s', '-v', '--alluredir', json_dir_path, '--clean-alluredir']
     # pytest.main(args_list)
@@ -25,5 +25,7 @@ if __name__ == '__main__':
             '--title=MDU产品自动化测试报告',
             '--tester=自动化机器',
             '--desc=这是MDU产品自动化测试报告，包含测试用例数、执行花费时间、执行日期、执行用例结果',
-            '--template=2']
+            '--template=2',
+            '--self-contained-html',
+            '--encoding=utf8']
     pytest.main(args)
