@@ -11,7 +11,10 @@ Login: #登录
 Shell: # 发送指令
   doc: ls
   mac: sismac
+  cat: cat
   expect:
     - bin
     - Usage format
+    - 880
+
 

@@ -49,6 +49,9 @@ class TestShell:
         lb.logger.info(f"test_shell_mac 方法运行后的结果：>>>>>{re}")
         assert shell['expect'][1] in re
 
+
+
+
     def teardown_class(self):
         self.tl.exit()
         lb.logger.info(f"teardown_class运行了")
