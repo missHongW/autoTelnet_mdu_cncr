@@ -7,12 +7,12 @@
 
 执行telnet指令的基类
 连接Telnet
-登录
-发送telnet指令
+admin登录
+su 登录
 """
 
 import telnetlib
-import time, sys
+import time
 from commcon import log_Base as lb
 
 
@@ -37,13 +37,9 @@ class TelnetLib(object):
             self.tn = telnetlib.Telnet(host, port, timeout)
             time.sleep(2)
             data = self.tn.read_very_eager().decode('UTF-8')
-
             return data
-
-
         except ConnectionRefusedError:
             print("连接失败，可能是web配置后台未启用Telnet配置")
-
         else:
             print('连接成功,输入账号')
         finally:

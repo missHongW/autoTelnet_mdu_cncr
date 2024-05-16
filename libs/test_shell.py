@@ -54,7 +54,7 @@ class TestShell:
 
     def teardown_class(self):
         self.tl.exit()
-        lb.logger.info(f"teardown_class运行了")
+
 
 if __name__ == '__main__':
     pytest.main()

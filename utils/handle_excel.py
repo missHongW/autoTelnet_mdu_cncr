@@ -6,9 +6,11 @@
 # >>>TODO
 读取Excel中数据
 """
+import json
 
 import xlrd
 from utils.handle_path import case_path
+from commcon import log_Base as lb
 
 testData_path = r"%s" % (case_path)
 print("testData_path>>>", testData_path)
@@ -53,7 +55,6 @@ def getExcelColDatas(colx, start_rowx=1, end_rowx=None):
     '''
     excel_col_datas = excel_sheet_first.col_values(colx, start_rowx, end_rowx)
     return excel_col_datas
-    #  获取任意单元格的数据
 
 
 def getExcelCellData(rowx, colx):
@@ -66,5 +67,39 @@ def getExcelCellData(rowx, colx):
     excel_cell_datas = excel_sheet_first.cell_value(rowx, colx)
     return excel_cell_datas
 
+
+def getFiltrateData(type):
+    '''
+    通过参数筛选到指定的数据
+    :param type: 测试用例文件中的用例类型
+    :return: 筛选后的数据
+    '''
+    # 初始化一个列表存放筛选后的数据
+    resulte_filtrate = []
+    # 表头 即：第一行数据
+    excel_header = []
+    print(excel_sheet_first.nrows, "excel_sheet_first.nrows")
+    for row_num in range(1, excel_sheet_first.nrows):
+        # 用例名称
+        case_name = getExcelCellData(row_num, 2)
+        print("row_num, case_name", row_num, case_name)
+        # 用例类型
+        case_type = getExcelCellData(row_num, 3)
+        print(case_type)
+        # 用例步骤
+        case_step = getExcelCellData(row_num, 5)
+        # 期望结果
+        expect_result = getExcelCellData(row_num, 6)
+        # 符合类型的数据存放在列表中并返回
+        if case_type == type:
+            resulte_filtrate.append({'case_name': case_name, 'case_type': case_type, 'case_step': case_step,
+                                     'expect_result': expect_result})
+
+            resulte_filtrate_json = json.dumps(resulte_filtrate, ensure_ascii=False, indent=2)
+            lb.logger.info(f"获取筛选后的用例数据：{resulte_filtrate_json}")
+
+    return resulte_filtrate
+
+
 if __name__ == '__main__':
-    print(getExcelColDatas(3))
+    print(getFiltrateData('product_test'))
