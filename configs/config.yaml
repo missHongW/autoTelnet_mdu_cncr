@@ -26,3 +26,8 @@
    close_2: A0 02 00 A2
    close_3: A0 03 00 A3
    close_4: A0 04 00 A4
+
+- ssh:
+    ssh_host: 192.168.20.30
+    ssh_username: root
+    ssh_password: %CncR@SEG7

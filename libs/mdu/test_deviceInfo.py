@@ -15,8 +15,6 @@ from utils import handle_yaml, handle_path, handle_excel
 
 
 class TestDeviceInfo:
-    def boot_productTest(self):
-        pass
 
     def setup_class(self):
         # 获取设备串口、telnet连接信息
@@ -62,8 +60,6 @@ class TestDeviceInfo:
         #         re_udp.replace('\\', '')  # 获取端口link状态 会返回 / 被转义成\/
         #     else:
         #         assert json.loads(re_udp)['data']['data1'] == json.loads(device_expect)['data']['data1']
-
-
 
     def teardown_class(self):
         message = [mes for mes in self.link_info[4]['serial_close_command'].values()]

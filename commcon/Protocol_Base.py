@@ -4,7 +4,6 @@
 @Author       wujie
 2024/5/11 11:10
 # >>>TODO
-
 串口、telnet、product_test(产测)
 """
 import time
