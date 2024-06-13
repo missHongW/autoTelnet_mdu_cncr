@@ -14,20 +14,18 @@
 - product_test:
     pt_ip: 192.168.1.1
     pt_port: 33079
-
+  # 继电器开关及常用指令（HEX形式）
 - serial_open_command:
-   open_1: A0 01 01 A2
-   open_2: A0 02 01 A3
-   open_3: A0 03 01 A4
-   open_4: A0 04 01 A5
+    open_1: A0 01 01 A2 #打开第一路USB开关
+    open_2: A0 02 01 A3
+    open_3: A0 03 01 A4
+    open_4: A0 04 01 A5
 
 - serial_close_command:
-   close_1: A0 01 00 A1
-   close_2: A0 02 00 A2
-   close_3: A0 03 00 A3
-   close_4: A0 04 00 A4
-
-- ssh:
-    ssh_host: 192.168.20.30
-    ssh_username: root
-    ssh_password: %CncR@SEG7
+    close_1: A0 01 00 A1 # 关闭第一路USB开关
+    close_2: A0 02 00 A2
+    close_3: A0 03 00 A3
+    close_4: A0 04 00 A4
+# 查询开关状态
+- serial_status_command:
+    status_1: FF

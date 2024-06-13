@@ -4,7 +4,8 @@ Link: # 连接
 
 Login: #登录
   username: admin
-  password: admin@123
+  # password: admin@123
+  password: aDm8H%MdA
   expect: ~ $
 
 

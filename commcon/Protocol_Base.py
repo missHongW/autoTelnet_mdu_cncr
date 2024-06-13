@@ -1,7 +1,7 @@
 """
 @File    :   telnet_Base.py
 @Modify Time
-@Author       wujie
+@Author       Hongrui
 2024/5/11 11:10
 # >>>TODO
 串口、telnet、product_test(产测)
@@ -9,6 +9,7 @@
 import time
 import json
 import serial
+
 import socket
 import binascii
 import telnetlib
@@ -122,7 +123,8 @@ class MultiProtocolCommunicator:
         self.udp_sock.sendto(message.encode(), (ip, port))
         print(f"UDP数据包已发送至 {ip}:{port}: {message}")
         lb.logger.info(f"UDP数据包开始发送至 {ip}:{port}: {message}")
-        time.sleep(2.0) # aDm8H%MdA接收服务器的响应，设置超时时间为2秒，防止无限等待,发送查询lan口link状态时 会超时，即 超时时间设置5秒
+        self.udp_sock.settimeout(3.0)
+        time.sleep(5.0) # aDm8H%MdA接收服务器的响应，设置超时时间为2秒，防止无限等待,发送查询lan口link状态时 会超时，即 超时时间设置5秒
         try:
             response = self.udp_sock.recvfrom(65507)
             lb.logger.info("发送成功")
@@ -146,7 +148,7 @@ class MultiProtocolCommunicator:
 
 # 使用示例
 if __name__ == "__main__":
-    communicator = MultiProtocolCommunicator(serial_port='COM3', udp_ip='192.168.1.100')
+    communicator = MultiProtocolCommunicator(serial_port='COM10', baudRate=9600, telnet_ip='192.168.1.1',telnet_port=23  ,udp_ip='192.168.1.1',udp_port=23)
 
     command_open_1 = 'A0 01 01 A2'
     command_close_1 = 'A0 01 00 A1'
@@ -163,12 +165,12 @@ if __name__ == "__main__":
                     command_close_3, command_close_4]
 
     # 发送串口指令
-    # communicator.send_serial(command_open_lsit)
+    communicator.send_serial(command_open_lsit)
 
     # 发送Telnet指令
     communicator.send_telnet("ls -l")
 
     # 发送UDP数据包
-    # communicator.send_udp("Hello, UDP Server!")
+    communicator.send_udp("Hello, UDP Server!")
 
     # 关闭连接（根据需要）

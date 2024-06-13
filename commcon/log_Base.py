@@ -1,8 +1,8 @@
 """
 @File    :   log_Base.py   
 @Modify Time      
-@Author       wujie 
-2024/4/29 11:05      
+@Author       Hongrui
+
 # >>>TODO 封装日志
 """
 

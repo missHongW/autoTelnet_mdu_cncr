@@ -53,6 +53,7 @@ class TestDeviceInfo:
         re_udp = self.pb.send_udp(case_list_command['case_step']).replace('\x00', '')
         lb.logger.info(
             f"用例执行结果，收到消息 :  {type(re_udp)} {re_udp}, code: {json.loads(re_udp)['result_code']}, msg: {json.loads(re_udp)['result_msg']}")
+
         assert json.loads(re_udp)['result_code'] == 'OK'
         assert json.loads(re_udp)['result_msg'] == 'handle cmd success'
         # if 'data' in re_udp:

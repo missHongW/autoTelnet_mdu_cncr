@@ -10,7 +10,7 @@ import pytest
 import allure
 import sys
 from utils import handle_yaml
-from commcon import telnet_Base as tb
+from commcon import Telnet_Link as tb
 from commcon import log_Base as lb
 
 @allure.epic('MDU-Test')

@@ -1,61 +1,70 @@
+# -*- coding: utf-8 -*-
 """
-@File    :   handle_excel.py   
-@Modify Time      
-@Author       wujie 
-2024/4/28 17:43      
+@File    :   handle_excel.py
+@Modify Time
+@Author  : HongRui
 # >>>TODO
 读取Excel中数据
 """
-import json
 
+import json
 import xlrd
+import pandas as pd
 from utils.handle_path import case_path
 from commcon import log_Base as lb
 
 testData_path = r"%s" % (case_path)
 print("testData_path>>>", testData_path)
-# 打开Excel文件 formatting_info=True ，打开文件后保持原样式
-excel_data = xlrd.open_workbook(testData_path)
-# 获取Excel文件中的第一个表格
-excel_sheet_first = excel_data.sheet_by_index(0)
 
+# 确定文件格式并选择合适的引擎
+if testData_path.endswith('.xlsx'):
+    excel_data = pd.read_excel(testData_path, engine='openpyxl')
+elif testData_path.endswith('.xls'):
+    excel_data = pd.read_excel(testData_path, engine='xlrd')
+else:
+    raise ValueError("Unsupported file format. Please use .xls or .xlsx file.")
+
+# 获取Excel文件中的第一个表格
+excel_sheet_first = excel_data
 
 def get_excel_data(file_path, sheet_name):
     '''
-
     :param file_path: 文件的路径
     :param sheet_name: 具体操作的sheet名称
     :return: [(),()]   列表套元组
     '''
     print("get_excel_data_file_path", file_path)
-    # 1- 打开excel 文件  formatting_info=True  保持原样式
-    work_book = xlrd.open_workbook(file_path, formatting_info=True)
+    # 1- 打开excel 文件 读取表名
+    if file_path.endswith('.xlsx'):
+        work_book = pd.ExcelFile(file_path, engine='openpyxl')
+    elif file_path.endswith('.xls'):
+        work_book = pd.ExcelFile(file_path, engine='xlrd')
+    else:
+        raise ValueError("Unsupported file format. Please use .xls or .xlsx file.")
+
     # 2- 指定对于的列表
     print(work_book.sheet_names())  # 查看文件的表名称
-
 
 def getExcelRowDatas(rowx, start_colx=0, end_colx=None):
     '''
     :param rowx: 获取第x行的数据, 从0开始
-    :param start_colx:  开始第x列表  不传则 默认是0第一列开始
-    :param end_colx:  结束第x列，不传则 默认是全部
-    :return:    列表类型的数据<class 'list'>
+    :param start_colx:  开始第x列 不传则默认是0第一列开始
+    :param end_colx:  结束第x列，不传则默认是全部
+    :return: 列表类型的数据<class 'list'>
     '''
     # 获取excel表格中第x行的数据
-    excel_row_datas = excel_sheet_first.row_values(rowx, start_colx, end_colx)
+    excel_row_datas = excel_sheet_first.iloc[rowx, start_colx:end_colx].tolist()
     return excel_row_datas
-
 
 def getExcelColDatas(colx, start_rowx=1, end_rowx=None):
     '''
-    :param colx: 获取第x列表的数据
-    :param start_rowx: 开始第x行 不传则 默认是0第一列开始
-    :param end_rowx: 结束第x行 不传则 默认是全部
+    :param colx: 获取第x列的数据
+    :param start_rowx: 开始第x行 不传则默认是1
+    :param end_rowx: 结束第x行 不传则默认是全部
     :return: 列表类型的数据 <class 'list'>
     '''
-    excel_col_datas = excel_sheet_first.col_values(colx, start_rowx, end_rowx)
+    excel_col_datas = excel_sheet_first.iloc[start_rowx:end_rowx, colx].tolist()
     return excel_col_datas
-
 
 def getExcelCellData(rowx, colx):
     '''
@@ -64,9 +73,8 @@ def getExcelCellData(rowx, colx):
     :param colx: 列
     :return: 字符串类型返回单元格内容  <class 'str'>
     '''
-    excel_cell_datas = excel_sheet_first.cell_value(rowx, colx)
+    excel_cell_datas = excel_sheet_first.iloc[rowx, colx]
     return excel_cell_datas
-
 
 def getFiltrateData(type):
     '''
@@ -77,9 +85,8 @@ def getFiltrateData(type):
     # 初始化一个列表存放筛选后的数据
     resulte_filtrate = []
     # 表头 即：第一行数据
-    excel_header = []
-    print(excel_sheet_first.nrows, "excel_sheet_first.nrows")
-    for row_num in range(1, excel_sheet_first.nrows):
+    print(len(excel_sheet_first), "excel_sheet_first.nrows")
+    for row_num in range(1, len(excel_sheet_first)):
         # 用例名称
         case_name = getExcelCellData(row_num, 2)
         print("row_num, case_name", row_num, case_name)
@@ -99,7 +106,6 @@ def getFiltrateData(type):
             lb.logger.info(f"获取筛选后的用例数据：{resulte_filtrate_json}")
 
     return resulte_filtrate
-
 
 if __name__ == '__main__':
     print(getFiltrateData('product_test'))
