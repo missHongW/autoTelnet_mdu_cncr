@@ -1,0 +1,43 @@
+2024-06-17 16:39:42,945 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py link:28] - >>>host192.168.1.1
+2024-06-17 16:39:44,974 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py login:46] - >>>>>username:admin
+2024-06-17 16:39:44,974 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py login:47] - >>>>>password:aDm8H%MdA
+2024-06-17 16:39:49,976 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py login:57] - 登录方法后的结果>>>>>admin
+Password: 
+~ $
+2024-06-17 16:39:49,976 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:63] - >>>>>command:su
+2024-06-17 16:39:51,977 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:69] - 执行命令方法后的结果>>>>>su
+Password: 
+2024-06-17 16:39:51,977 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:63] - >>>>>command:aDm8H%MdA
+2024-06-17 16:39:53,979 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:69] - 执行命令方法后的结果>>>>>
+root@zxic:~ # 
+2024-06-17 16:39:53,979 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:63] - >>>>>command:ping www.taobao.com
+2024-06-17 16:39:55,981 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:69] - 执行命令方法后的结果>>>>>ping www.taobao.com
+
+ [1174  common_ping_main] str_output_file=(null) g_ping_outif:(null) g_str_tunnel_name:(null) 
+PING www.taobao.com (106.225.241.98): 56 data bytes
+64 bytes from 106.225.241.98: seq=0 ttl=56 time=47.875 ms
+
+2024-06-17 16:39:55,981 INFO [CNCR-MDU产品自动化测试日志] [Reboot.py verify_device:34] - 执行指令结果：ping www.taobao.com
+
+ [1174  common_ping_main] str_output_file=(null) g_ping_outif:(null) g_str_tunnel_name:(null) 
+PING www.taobao.com (106.225.241.98): 56 data bytes
+64 bytes from 106.225.241.98: seq=0 ttl=56 time=47.875 ms
+
+2024-06-17 16:39:55,981 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py link:28] - >>>host192.168.1.1
+2024-06-17 16:39:58,000 INFO [CNCR-MDU产品自动化测试日志] [Reboot.py reboot_device:18] - >>>登录设备
+2024-06-17 16:39:58,000 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py login:46] - >>>>>username:admin
+2024-06-17 16:39:58,000 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py login:47] - >>>>>password:aDm8H%MdA
+2024-06-17 16:40:03,003 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py login:57] - 登录方法后的结果>>>>>admin
+Password: 
+~ $
+2024-06-17 16:40:03,003 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:63] - >>>>>command:su
+2024-06-17 16:40:05,005 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:69] - 执行命令方法后的结果>>>>>su
+Password: 
+2024-06-17 16:40:05,005 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:63] - >>>>>command:aDm8H%MdA
+2024-06-17 16:40:07,006 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:69] - 执行命令方法后的结果>>>>>
+root@zxic:~ # 
+2024-06-17 16:40:07,006 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:63] - >>>>>command:sidbg 1 DB reset
+2024-06-17 16:40:09,008 INFO [CNCR-MDU产品自动化测试日志] [Telnet_Link.py shell:69] - 执行命令方法后的结果>>>>>sidbg 1 DB reset
+
+2024-06-17 16:40:09,008 INFO [CNCR-MDU产品自动化测试日志] [Reboot.py reboot_device:24] - 执行指令恢复出厂中...sidbg 1 DB reset
+

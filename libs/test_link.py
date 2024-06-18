@@ -1,7 +1,7 @@
 """
 @File    :   test_link.py   
 @Modify Time      
-@Author       wujie 
+@Author       HongRui
 2024/4/29 15:57      
 # >>>TODO 连接Telnet
 """

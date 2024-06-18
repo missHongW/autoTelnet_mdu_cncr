@@ -3,29 +3,32 @@
 @File    :   handle_excel.py
 @Modify Time
 @Author  : HongRui
+
 # >>>TODO
 读取Excel中数据
 """
 
 import json
-import xlrd
 import pandas as pd
 from utils.handle_path import case_path
 from commcon import log_Base as lb
 
 testData_path = r"%s" % (case_path)
-print("testData_path>>>", testData_path)
+print("测试用例位置>>>", testData_path)
 
-# 确定文件格式并选择合适的引擎
-if testData_path.endswith('.xlsx'):
+# 尝试使用 openpyxl 引擎读取文件
+try:
     excel_data = pd.read_excel(testData_path, engine='openpyxl')
-elif testData_path.endswith('.xls'):
-    excel_data = pd.read_excel(testData_path, engine='xlrd')
-else:
-    raise ValueError("Unsupported file format. Please use .xls or .xlsx file.")
+except ValueError as e:
+    # 如果 openpyxl 引擎失败，尝试使用 xlrd 引擎
+    if 'Excel xlsx file; not supported' in str(e):
+        excel_data = pd.read_excel(testData_path, engine='xlrd')
+    else:
+        raise e
 
 # 获取Excel文件中的第一个表格
 excel_sheet_first = excel_data
+
 
 def get_excel_data(file_path, sheet_name):
     '''
@@ -34,17 +37,20 @@ def get_excel_data(file_path, sheet_name):
     :return: [(),()]   列表套元组
     '''
     print("get_excel_data_file_path", file_path)
-    # 1- 打开excel 文件 读取表名
-    if file_path.endswith('.xlsx'):
+    # 尝试使用 openpyxl 引擎读取文件
+    try:
         work_book = pd.ExcelFile(file_path, engine='openpyxl')
-    elif file_path.endswith('.xls'):
-        work_book = pd.ExcelFile(file_path, engine='xlrd')
-    else:
-        raise ValueError("Unsupported file format. Please use .xls or .xlsx file.")
+    except ValueError as e:
+
+        if 'Excel xlsx file; not supported' in str(e):
+            work_book = pd.ExcelFile(file_path, engine='xlrd')
+        else:
+            raise e
 
     # 2- 指定对于的列表
     print(work_book.sheet_names())  # 查看文件的表名称
 
+# 获取指定行的数据
 def getExcelRowDatas(rowx, start_colx=0, end_colx=None):
     '''
     :param rowx: 获取第x行的数据, 从0开始
@@ -56,6 +62,7 @@ def getExcelRowDatas(rowx, start_colx=0, end_colx=None):
     excel_row_datas = excel_sheet_first.iloc[rowx, start_colx:end_colx].tolist()
     return excel_row_datas
 
+# 获取指定列的数据
 def getExcelColDatas(colx, start_rowx=1, end_rowx=None):
     '''
     :param colx: 获取第x列的数据
@@ -65,6 +72,7 @@ def getExcelColDatas(colx, start_rowx=1, end_rowx=None):
     '''
     excel_col_datas = excel_sheet_first.iloc[start_rowx:end_rowx, colx].tolist()
     return excel_col_datas
+
 
 def getExcelCellData(rowx, colx):
     '''
@@ -76,6 +84,7 @@ def getExcelCellData(rowx, colx):
     excel_cell_datas = excel_sheet_first.iloc[rowx, colx]
     return excel_cell_datas
 
+
 def getFiltrateData(type):
     '''
     通过参数筛选到指定的数据
@@ -84,15 +93,15 @@ def getFiltrateData(type):
     '''
     # 初始化一个列表存放筛选后的数据
     resulte_filtrate = []
-    # 表头 即：第一行数据
+
     print(len(excel_sheet_first), "excel_sheet_first.nrows")
-    for row_num in range(1, len(excel_sheet_first)):
+    for row_num in range(0, len(excel_sheet_first)):
         # 用例名称
         case_name = getExcelCellData(row_num, 2)
         print("row_num, case_name", row_num, case_name)
         # 用例类型
         case_type = getExcelCellData(row_num, 3)
-        print(case_type)
+        print("协议类型："+case_type)
         # 用例步骤
         case_step = getExcelCellData(row_num, 5)
         # 期望结果
@@ -106,6 +115,7 @@ def getFiltrateData(type):
             lb.logger.info(f"获取筛选后的用例数据：{resulte_filtrate_json}")
 
     return resulte_filtrate
+
 
 if __name__ == '__main__':
     print(getFiltrateData('product_test'))

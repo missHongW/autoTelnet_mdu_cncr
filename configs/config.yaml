@@ -2,7 +2,7 @@
     tn_ip: 192.168.1.1
     tn_prot: 23
     tn_username: admin
-    tn_password: admin@123
+    tn_password: aDm8H%MdA
     tn_root_username: su
     tn_root_password: aDm8H%MdA
 
@@ -12,7 +12,7 @@
     ser_baudRate: 9600
 
 - product_test:
-    pt_ip: 192.168.1.1
+    pt_ip: 192.168.1.100
     pt_port: 33079
   # 继电器开关及常用指令（HEX形式）
 - serial_open_command:
