@@ -16,7 +16,7 @@ from commcon import log_Base as lb
 testData_path = r"%s" % (case_path)
 print("测试用例位置>>>", testData_path)
 
-# 尝试使用 openpyxl 引擎读取文件
+
 try:
     excel_data = pd.read_excel(testData_path, engine='openpyxl')
 except ValueError as e:

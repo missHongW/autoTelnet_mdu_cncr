@@ -49,7 +49,7 @@ class MultiProtocolCommunicator:
         #     lb.logger.error(f"串口通信异常：{e}")
         try:
             sr = PCBTest.RelayController(port, self.baudRate, cycle_time)
-            sr.control_relay(cycle_time)
+            sr.control_relay()
         except serial.SerialException as e:
             print(f"串口通信异常：{e}")
 
@@ -151,10 +151,10 @@ class MultiProtocolCommunicator:
 
 # 使用示例
 if __name__ == "__main__":
-    communicator = MultiProtocolCommunicator(serial_port='COM10', baudRate=9600, telnet_ip='192.168.1.1',
+    communicator = MultiProtocolCommunicator(serial_port='COM11', baudRate=9600, telnet_ip='192.168.1.1',
                                              telnet_port=23, udp_ip='192.168.1.100', udp_port=23)
 
-    port = 'COM10'  # 替换为实际的串口号
+    port = 'COM11'  # 替换为实际的串口号
     cycle_time = 2  # 设置继电器开关的周期等待时间（秒）
 
     # 发送串口指令
